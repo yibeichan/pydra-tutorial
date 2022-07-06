@@ -225,7 +225,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/Yibeichan/pydra-tutorial/yc-pydra-book?urlpath=tree/docs/notebooks/3_intro_functiontask_state.ipynb"
+        <a href="https://mybinder.org/v2/gh/nipype/pydra-tutorial/master/v2/gh/nipype/pydra-tutorial/master?urlpath=tree/docs/notebooks/3_intro_functiontask_state.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -268,7 +268,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/Yibeichan/pydra-tutorial"
+        <a href="https://github.com/nipype/pydra-tutorial"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -285,7 +285,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/Yibeichan/pydra-tutorial/issues/new?title=Issue%20on%20page%20%2Fnotebooks/3_intro_functiontask_state.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/nipype/pydra-tutorial/issues/new?title=Issue%20on%20page%20%2Fnotebooks/3_intro_functiontask_state.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -538,7 +538,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pydra.engine.task.FunctionTask at 0x7fb0205e3b90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pydra.engine.task.FunctionTask at 0x7fd2f4498760&gt;
 </pre></div>
 </div>
 </div>
@@ -551,7 +551,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pydra.engine.state.State at 0x7fb01813fd10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pydra.engine.state.State at 0x7fd2f44d3a00&gt;
 </pre></div>
 </div>
 </div>
@@ -727,15 +727,18 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">wr</span><span class="o">/</span><span class="n">x5xt_yqs2cvc_gb3sf147lvc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2373</span><span class="o">/</span><span class="mf">2635338667.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nn">Input In [16],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">task4</span><span class="o">.</span><span class="n">split</span><span class="p">((</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">))</span>
 
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/core.py</span> in <span class="ni">split</span><span class="nt">(self, splitter, overwrite, cont_dim, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">557</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">overwrite</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">splitter</span> <span class="o">!=</span> <span class="n">splitter</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">558</span>             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">559</span>                 <span class="s2">&quot;splitter has been already set, &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">560</span>                 <span class="s2">&quot;if you want to overwrite it - use overwrite=True&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">561</span>             <span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/pydra/engine/core.py:541,</span> in <span class="ni">TaskBase.split</span><span class="nt">(self, splitter, overwrite, cont_dim, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span> <span class="c1"># if user want to update the splitter, overwrite has to be True</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">overwrite</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">splitter</span> <span class="o">!=</span> <span class="n">splitter</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">541</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span>         <span class="s2">&quot;splitter has been already set, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span>         <span class="s2">&quot;if you want to overwrite it - use overwrite=True&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">545</span> <span class="k">if</span> <span class="n">cont_dim</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">546</span>     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">vel</span> <span class="ow">in</span> <span class="n">cont_dim</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 
 <span class="ne">Exception</span>: splitter has been already set, if you want to overwrite it - use overwrite=True
 </pre></div>
@@ -974,7 +977,7 @@ cubes: [8, 27, 64, 125]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total time: 1.3097989559173584
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total time: 2.2573089599609375
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Result(output=Output(out=3), runtime=None, errored=False),
@@ -1001,7 +1004,7 @@ cubes: [8, 27, 64, 125]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total time: 1.347938060760498
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total time: 2.3221781253814697
 results: [Result(output=Output(out=3), runtime=None, errored=False), Result(output=Output(out=4), runtime=None, errored=False), Result(output=Output(out=5), runtime=None, errored=False), Result(output=Output(out=6), runtime=None, errored=False)]
 </pre></div>
 </div>
@@ -1020,7 +1023,7 @@ results: [Result(output=Output(out=3), runtime=None, errored=False), Result(outp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total time: 1.339102029800415
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total time: 2.322044610977173
 results: [Result(output=Output(out=3), runtime=None, errored=False), Result(output=Output(out=4), runtime=None, errored=False), Result(output=Output(out=5), runtime=None, errored=False), Result(output=Output(out=6), runtime=None, errored=False)]
 </pre></div>
 </div>
@@ -1040,7 +1043,7 @@ results: [Result(output=Output(out=3), runtime=None, errored=False), Result(outp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total time: 1.3082010746002197
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total time: 2.2382595539093018
 results: [Result(output=Output(out=3), runtime=None, errored=False), Result(output=Output(out=4), runtime=None, errored=False), Result(output=Output(out=5), runtime=None, errored=False), Result(output=Output(out=6), runtime=None, errored=False)]
 </pre></div>
 </div>
@@ -1060,7 +1063,7 @@ results: [Result(output=Output(out=3), runtime=None, errored=False), Result(outp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total time: 2.364259719848633
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total time: 2.251276969909668
 results: [Result(output=Output(out=3), runtime=None, errored=False), Result(output=Output(out=4), runtime=None, errored=False), Result(output=Output(out=5), runtime=None, errored=False), Result(output=Output(out=6), runtime=None, errored=False)]
 </pre></div>
 </div>
@@ -1119,7 +1122,7 @@ If you have 2 processors or less, you should not see any difference in the execu
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By TODO<br/>
+    By Pydra Developers<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

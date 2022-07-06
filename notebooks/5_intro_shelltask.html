@@ -225,7 +225,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/Yibeichan/pydra-tutorial/yc-pydra-book?urlpath=tree/docs/notebooks/5_intro_shelltask.ipynb"
+        <a href="https://mybinder.org/v2/gh/nipype/pydra-tutorial/master/v2/gh/nipype/pydra-tutorial/master?urlpath=tree/docs/notebooks/5_intro_shelltask.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -268,7 +268,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/Yibeichan/pydra-tutorial"
+        <a href="https://github.com/nipype/pydra-tutorial"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -285,7 +285,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/Yibeichan/pydra-tutorial/issues/new?title=Issue%20on%20page%20%2Fnotebooks/5_intro_shelltask.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/nipype/pydra-tutorial/issues/new?title=Issue%20on%20page%20%2Fnotebooks/5_intro_shelltask.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -591,7 +591,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(output=Output(return_code=0, stdout=&#39;/private/var/folders/wr/x5xt_yqs2cvc_gb3sf147lvc0000gn/T/tmp_ny235r4/ShellCommandTask_50215383834238ce614b4428a1e9943ddff15f8580a384a0a57b34c760864b3a\n&#39;, stderr=&#39;&#39;), runtime=None, errored=False)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(output=Output(return_code=0, stdout=&#39;/tmp/tmpj4b2f3h9/ShellCommandTask_50215383834238ce614b4428a1e9943ddff15f8580a384a0a57b34c760864b3a\n&#39;, stderr=&#39;&#39;), runtime=None, errored=False)
 </pre></div>
 </div>
 </div>
@@ -759,7 +759,7 @@ perhaps the simplest syntax is the last one, that contains <code class="docutils
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cmndline =  touch newfile_tmp.txt
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(output=Output(return_code=0, stdout=&#39;&#39;, stderr=&#39;&#39;, newfile=PosixPath(&#39;/private/var/folders/wr/x5xt_yqs2cvc_gb3sf147lvc0000gn/T/tmpwc7vjtww/ShellCommandTask_76e73f8b52e6d5d1920bda2a22e309fb4fd89cec14e6ab25755e2caf66cf0294/newfile_tmp.txt&#39;)), runtime=None, errored=False)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(output=Output(return_code=0, stdout=&#39;&#39;, stderr=&#39;&#39;, newfile=PosixPath(&#39;/tmp/tmp4gev71f5/ShellCommandTask_76e73f8b52e6d5d1920bda2a22e309fb4fd89cec14e6ab25755e2caf66cf0294/newfile_tmp.txt&#39;)), runtime=None, errored=False)
 </pre></div>
 </div>
 </div>
@@ -814,111 +814,7 @@ perhaps the simplest syntax is the last one, that contains <code class="docutils
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">_RemoteTraceback</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
-<span class="ne">_Remote</span>Traceback: 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Traceback (most recent call last):</span>
-<span class="sd">  File &quot;/Users/yibeichen/miniconda3/envs/pydra/lib/python3.7/concurrent/futures/process.py&quot;, line 239, in _process_worker</span>
-<span class="sd">    r = call_item.fn(*call_item.args, **call_item.kwargs)</span>
-<span class="sd">  File &quot;/Users/yibeichen/GDrive/GitHub/pydra/pydra/engine/core.py&quot;, line 506, in _run</span>
-<span class="sd">    self._run_task()</span>
-<span class="sd">  File &quot;/Users/yibeichen/GDrive/GitHub/pydra/pydra/engine/task.py&quot;, line 530, in _run_task</span>
-<span class="sd">    values = execute(args, strip=self.strip)</span>
-<span class="sd">  File &quot;/Users/yibeichen/GDrive/GitHub/pydra/pydra/engine/helpers.py&quot;, line 584, in execute</span>
-<span class="sd">    rc, stdout, stderr = read_and_display(*cmd, strip=strip)</span>
-<span class="sd">  File &quot;/Users/yibeichen/GDrive/GitHub/pydra/pydra/engine/helpers.py&quot;, line 549, in read_and_display</span>
-<span class="sd">    process = sp.run(cmd, stdout=sp.PIPE, stderr=sp.PIPE)</span>
-<span class="sd">  File &quot;/Users/yibeichen/miniconda3/envs/pydra/lib/python3.7/subprocess.py&quot;, line 488, in run</span>
-<span class="sd">    with Popen(*popenargs, **kwargs) as process:</span>
-<span class="sd">  File &quot;/Users/yibeichen/miniconda3/envs/pydra/lib/python3.7/subprocess.py&quot;, line 800, in __init__</span>
-<span class="sd">    restore_signals, start_new_session)</span>
-<span class="sd">  File &quot;/Users/yibeichen/miniconda3/envs/pydra/lib/python3.7/subprocess.py&quot;, line 1551, in _execute_child</span>
-<span class="sd">    raise child_exception_type(errno_num, err_msg, err_filename)</span>
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;docker&#39;: &#39;docker&#39;
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">wr</span><span class="o">/</span><span class="n">x5xt_yqs2cvc_gb3sf147lvc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2204</span><span class="o">/</span><span class="mf">927375447.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">with</span> <span class="n">pydra</span><span class="o">.</span><span class="n">Submitter</span><span class="p">()</span> <span class="k">as</span> <span class="n">sub</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">docky</span><span class="p">(</span><span class="n">submitter</span><span class="o">=</span><span class="n">sub</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">docky</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/core.py</span> in <span class="ni">__call__</span><span class="nt">(self, submitter, plugin, plugin_kwargs, rerun, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span>             <span class="k">with</span> <span class="n">submitter</span> <span class="k">as</span> <span class="n">sub</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">449</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">evolve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">450</span>                 <span class="n">res</span> <span class="o">=</span> <span class="n">sub</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="k">else</span><span class="p">:</span>  <span class="c1"># tasks without state could be run without a submitter</span>
-<span class="g g-Whitespace">    </span><span class="mi">452</span>             <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run</span><span class="p">(</span><span class="n">rerun</span><span class="o">=</span><span class="n">rerun</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/submitter.py</span> in <span class="ni">__call__</span><span class="nt">(self, runnable, cache_locations, rerun)</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="k">if</span> <span class="n">cache_locations</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>             <span class="n">runnable</span><span class="o">.</span><span class="n">cache_locations</span> <span class="o">=</span> <span class="n">cache_locations</span>
-<span class="ne">---&gt; </span><span class="mi">41</span>         <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">submit_from_call</span><span class="p">(</span><span class="n">runnable</span><span class="p">,</span> <span class="n">rerun</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="k">return</span> <span class="n">runnable</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> 
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/site-packages/nest_asyncio.py</span> in <span class="ni">run_until_complete</span><span class="nt">(self, future)</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span>                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span>                     <span class="s1">&#39;Event loop stopped before Future completed.&#39;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">89</span>             <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span> 
-<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="k">def</span> <span class="nf">_run_once</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/futures.py</span> in <span class="ni">result</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">179</span>         <span class="bp">self</span><span class="o">.</span><span class="n">__log_traceback</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">181</span>             <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_result</span>
-<span class="g g-Whitespace">    </span><span class="mi">183</span> 
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/tasks.py</span> in <span class="ni">__step</span><span class="nt">(***failed resolving arguments***)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">250</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">251</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">coro</span><span class="o">.</span><span class="n">throw</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span>         <span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_must_cancel</span><span class="p">:</span>
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/submitter.py</span> in <span class="ni">submit_from_call</span><span class="nt">(self, runnable, rerun)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span>             <span class="k">if</span> <span class="n">runnable</span><span class="o">.</span><span class="n">state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span>                 <span class="c1"># run_el should always return a coroutine</span>
-<span class="ne">---&gt; </span><span class="mi">76</span>                 <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="o">.</span><span class="n">run_el</span><span class="p">(</span><span class="n">runnable</span><span class="p">,</span> <span class="n">rerun</span><span class="o">=</span><span class="n">rerun</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span>             <span class="c1"># 3</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span>             <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/workers.py</span> in <span class="ni">exec_as_coro</span><span class="nt">(self, runnable, rerun)</span>
-<span class="g g-Whitespace">    </span><span class="mi">162</span>         <span class="sd">&quot;&quot;&quot;Run a task (coroutine wrapper).&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">163</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">runnable</span><span class="p">,</span> <span class="n">TaskBase</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">164</span>             <span class="n">res</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="o">.</span><span class="n">run_in_executor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">,</span> <span class="n">runnable</span><span class="o">.</span><span class="n">_run</span><span class="p">,</span> <span class="n">rerun</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">165</span>         <span class="k">else</span><span class="p">:</span>  <span class="c1"># it could be tuple that includes pickle files with tasks and inputs</span>
-<span class="g g-Whitespace">    </span><span class="mi">166</span>             <span class="n">ind</span><span class="p">,</span> <span class="n">task_main_pkl</span><span class="p">,</span> <span class="n">task_orig</span> <span class="o">=</span> <span class="n">runnable</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/futures.py</span> in <span class="ni">__await__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">262</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_asyncio_future_blocking</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="ne">--&gt; </span><span class="mi">263</span>             <span class="k">yield</span> <span class="bp">self</span>  <span class="c1"># This tells Task to wait for completion.</span>
-<span class="g g-Whitespace">    </span><span class="mi">264</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">265</span>             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;await wasn&#39;t used with future&quot;</span><span class="p">)</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/tasks.py</span> in <span class="ni">__wakeup</span><span class="nt">(self, future)</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span>     <span class="k">def</span> <span class="nf">__wakeup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">future</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">318</span>             <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">320</span>             <span class="c1"># This may also be a cancellation.</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/futures.py</span> in <span class="ni">result</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">179</span>         <span class="bp">self</span><span class="o">.</span><span class="n">__log_traceback</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">181</span>             <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_result</span>
-<span class="g g-Whitespace">    </span><span class="mi">183</span> 
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;docker&#39;: &#39;docker&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(output=Output(return_code=0, stdout=&#39;root\n&#39;, stderr=&quot;Unable to find image &#39;busybox:latest&#39; locally\nlatest: Pulling from library/busybox\n19d511225f94: Pulling fs layer\n19d511225f94: Download complete\n19d511225f94: Pull complete\nDigest: sha256:3614ca5eacf0a3a1bcc361c939202a974b4902b9334ff36eb29ffe9011aaad83\nStatus: Downloaded newer image for busybox:latest\n&quot;), runtime=None, errored=False)
 </pre></div>
 </div>
 </div>
@@ -939,124 +835,8 @@ perhaps the simplest syntax is the last one, that contains <code class="docutils
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">_RemoteTraceback</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
-<span class="ne">_Remote</span>Traceback: 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;docker&#39;: &#39;docker&#39;
-
-<span class="sd">During handling of the above exception, another exception occurred:</span>
-
-<span class="sd">Traceback (most recent call last):</span>
-<span class="sd">  File &quot;/Users/yibeichen/miniconda3/envs/pydra/lib/python3.7/concurrent/futures/process.py&quot;, line 239, in _process_worker</span>
-<span class="sd">    r = call_item.fn(*call_item.args, **call_item.kwargs)</span>
-<span class="sd">  File &quot;/Users/yibeichen/GDrive/GitHub/pydra/pydra/engine/helpers.py&quot;, line 804, in load_and_run</span>
-<span class="sd">    f&quot; full crash report is here: {errorfile}&quot;,</span>
-<span class="ne">FileNotFoundError</span>: [Errno [Errno 2] No such file or directory: &#39;docker&#39;: &#39;docker&#39;]  full crash report is here: /private/var/folders/wr/x5xt_yqs2cvc_gb3sf147lvc0000gn/T/tmpcocsl_8h/DockerTask_f5242594d4dd0c8a35fdfe4895b6f72db31ddf6dd45b378171aaf6eef1d44c4e/_error.pklz
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">wr</span><span class="o">/</span><span class="n">x5xt_yqs2cvc_gb3sf147lvc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2204</span><span class="o">/</span><span class="mf">2962768199.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">with</span> <span class="n">pydra</span><span class="o">.</span><span class="n">Submitter</span><span class="p">()</span> <span class="k">as</span> <span class="n">sub</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">docky</span><span class="p">(</span><span class="n">submitter</span><span class="o">=</span><span class="n">sub</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">docky</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/core.py</span> in <span class="ni">__call__</span><span class="nt">(self, submitter, plugin, plugin_kwargs, rerun, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span>             <span class="k">with</span> <span class="n">submitter</span> <span class="k">as</span> <span class="n">sub</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">449</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">evolve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">450</span>                 <span class="n">res</span> <span class="o">=</span> <span class="n">sub</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="k">else</span><span class="p">:</span>  <span class="c1"># tasks without state could be run without a submitter</span>
-<span class="g g-Whitespace">    </span><span class="mi">452</span>             <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run</span><span class="p">(</span><span class="n">rerun</span><span class="o">=</span><span class="n">rerun</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/submitter.py</span> in <span class="ni">__call__</span><span class="nt">(self, runnable, cache_locations, rerun)</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="k">if</span> <span class="n">cache_locations</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>             <span class="n">runnable</span><span class="o">.</span><span class="n">cache_locations</span> <span class="o">=</span> <span class="n">cache_locations</span>
-<span class="ne">---&gt; </span><span class="mi">41</span>         <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">submit_from_call</span><span class="p">(</span><span class="n">runnable</span><span class="p">,</span> <span class="n">rerun</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="k">return</span> <span class="n">runnable</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> 
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/site-packages/nest_asyncio.py</span> in <span class="ni">run_until_complete</span><span class="nt">(self, future)</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span>                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span>                     <span class="s1">&#39;Event loop stopped before Future completed.&#39;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">89</span>             <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span> 
-<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="k">def</span> <span class="nf">_run_once</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/futures.py</span> in <span class="ni">result</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">179</span>         <span class="bp">self</span><span class="o">.</span><span class="n">__log_traceback</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">181</span>             <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_result</span>
-<span class="g g-Whitespace">    </span><span class="mi">183</span> 
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/tasks.py</span> in <span class="ni">__step</span><span class="nt">(***failed resolving arguments***)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">250</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">251</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">coro</span><span class="o">.</span><span class="n">throw</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span>         <span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_must_cancel</span><span class="p">:</span>
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/submitter.py</span> in <span class="ni">submit_from_call</span><span class="nt">(self, runnable, rerun)</span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span>             <span class="c1"># 3</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">79</span>                 <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">expand_runnable</span><span class="p">(</span><span class="n">runnable</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rerun</span><span class="o">=</span><span class="n">rerun</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span>         <span class="k">return</span> <span class="kc">True</span>
-<span class="g g-Whitespace">     </span><span class="mi">81</span> 
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/submitter.py</span> in <span class="ni">expand_runnable</span><span class="nt">(self, runnable, wait, rerun)</span>
-<span class="g g-Whitespace">    </span><span class="mi">125</span>             <span class="c1"># if wait is True, we are at the end of the graph / state expansion.</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span>             <span class="c1"># Once the remaining jobs end, we will exit `submit_from_call`</span>
-<span class="ne">--&gt; </span><span class="mi">127</span>             <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">futures</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">128</span>             <span class="k">return</span>
-<span class="g g-Whitespace">    </span><span class="mi">129</span>         <span class="c1"># pass along futures to be awaited independently</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/tasks.py</span> in <span class="ni">__wakeup</span><span class="nt">(self, future)</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span>     <span class="k">def</span> <span class="nf">__wakeup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">future</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">318</span>             <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">320</span>             <span class="c1"># This may also be a cancellation.</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/tasks.py</span> in <span class="ni">__step</span><span class="nt">(***failed resolving arguments***)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">250</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">251</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">coro</span><span class="o">.</span><span class="n">throw</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span>         <span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_must_cancel</span><span class="p">:</span>
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/workers.py</span> in <span class="ni">exec_as_coro</span><span class="nt">(self, runnable, rerun)</span>
-<span class="g g-Whitespace">    </span><span class="mi">166</span>             <span class="n">ind</span><span class="p">,</span> <span class="n">task_main_pkl</span><span class="p">,</span> <span class="n">task_orig</span> <span class="o">=</span> <span class="n">runnable</span>
-<span class="g g-Whitespace">    </span><span class="mi">167</span>             <span class="n">res</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="o">.</span><span class="n">run_in_executor</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">168</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">,</span> <span class="n">load_and_run</span><span class="p">,</span> <span class="n">task_main_pkl</span><span class="p">,</span> <span class="n">ind</span><span class="p">,</span> <span class="n">rerun</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">170</span>         <span class="k">return</span> <span class="n">res</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/futures.py</span> in <span class="ni">__await__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">262</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_asyncio_future_blocking</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="ne">--&gt; </span><span class="mi">263</span>             <span class="k">yield</span> <span class="bp">self</span>  <span class="c1"># This tells Task to wait for completion.</span>
-<span class="g g-Whitespace">    </span><span class="mi">264</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">265</span>             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;await wasn&#39;t used with future&quot;</span><span class="p">)</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/tasks.py</span> in <span class="ni">__wakeup</span><span class="nt">(self, future)</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span>     <span class="k">def</span> <span class="nf">__wakeup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">future</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">318</span>             <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">320</span>             <span class="c1"># This may also be a cancellation.</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/futures.py</span> in <span class="ni">result</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">179</span>         <span class="bp">self</span><span class="o">.</span><span class="n">__log_traceback</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">181</span>             <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_result</span>
-<span class="g g-Whitespace">    </span><span class="mi">183</span> 
-
-<span class="ne">FileNotFoundError</span>: [Errno [Errno 2] No such file or directory: &#39;docker&#39;: &#39;docker&#39;]  full crash report is here: /private/var/folders/wr/x5xt_yqs2cvc_gb3sf147lvc0000gn/T/tmpcocsl_8h/DockerTask_f5242594d4dd0c8a35fdfe4895b6f72db31ddf6dd45b378171aaf6eef1d44c4e/_error.pklz
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Result(output=Output(return_code=0, stdout=&#39;root\n&#39;, stderr=&#39;&#39;), runtime=None, errored=False),
+ Result(output=Output(return_code=0, stdout=&#39;root\n&#39;, stderr=&quot;Unable to find image &#39;ubuntu:latest&#39; locally\nlatest: Pulling from library/ubuntu\n405f018f9d1d: Pulling fs layer\n405f018f9d1d: Verifying Checksum\n405f018f9d1d: Download complete\n405f018f9d1d: Pull complete\nDigest: sha256:b6b83d3c331794420340093eb706a6f152d9c1fa51b262d9bf34594887c2c7ac\nStatus: Downloaded newer image for ubuntu:latest\n&quot;), runtime=None, errored=False)]
 </pre></div>
 </div>
 </div>
@@ -1082,111 +862,7 @@ perhaps the simplest syntax is the last one, that contains <code class="docutils
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">_RemoteTraceback</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
-<span class="ne">_Remote</span>Traceback: 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Traceback (most recent call last):</span>
-<span class="sd">  File &quot;/Users/yibeichen/miniconda3/envs/pydra/lib/python3.7/concurrent/futures/process.py&quot;, line 239, in _process_worker</span>
-<span class="sd">    r = call_item.fn(*call_item.args, **call_item.kwargs)</span>
-<span class="sd">  File &quot;/Users/yibeichen/GDrive/GitHub/pydra/pydra/engine/core.py&quot;, line 506, in _run</span>
-<span class="sd">    self._run_task()</span>
-<span class="sd">  File &quot;/Users/yibeichen/GDrive/GitHub/pydra/pydra/engine/task.py&quot;, line 530, in _run_task</span>
-<span class="sd">    values = execute(args, strip=self.strip)</span>
-<span class="sd">  File &quot;/Users/yibeichen/GDrive/GitHub/pydra/pydra/engine/helpers.py&quot;, line 584, in execute</span>
-<span class="sd">    rc, stdout, stderr = read_and_display(*cmd, strip=strip)</span>
-<span class="sd">  File &quot;/Users/yibeichen/GDrive/GitHub/pydra/pydra/engine/helpers.py&quot;, line 549, in read_and_display</span>
-<span class="sd">    process = sp.run(cmd, stdout=sp.PIPE, stderr=sp.PIPE)</span>
-<span class="sd">  File &quot;/Users/yibeichen/miniconda3/envs/pydra/lib/python3.7/subprocess.py&quot;, line 488, in run</span>
-<span class="sd">    with Popen(*popenargs, **kwargs) as process:</span>
-<span class="sd">  File &quot;/Users/yibeichen/miniconda3/envs/pydra/lib/python3.7/subprocess.py&quot;, line 800, in __init__</span>
-<span class="sd">    restore_signals, start_new_session)</span>
-<span class="sd">  File &quot;/Users/yibeichen/miniconda3/envs/pydra/lib/python3.7/subprocess.py&quot;, line 1551, in _execute_child</span>
-<span class="sd">    raise child_exception_type(errno_num, err_msg, err_filename)</span>
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;docker&#39;: &#39;docker&#39;
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">wr</span><span class="o">/</span><span class="n">x5xt_yqs2cvc_gb3sf147lvc0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_2204</span><span class="o">/</span><span class="mf">2355727424.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">shelly</span> <span class="o">=</span> <span class="n">pydra</span><span class="o">.</span><span class="n">ShellCommandTask</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;shelly&quot;</span><span class="p">,</span> <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;whoami&quot;</span><span class="p">,</span> <span class="n">container_info</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;docker&quot;</span><span class="p">,</span> <span class="s2">&quot;busybox&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">with</span> <span class="n">pydra</span><span class="o">.</span><span class="n">Submitter</span><span class="p">()</span> <span class="k">as</span> <span class="n">sub</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">shelly</span><span class="p">(</span><span class="n">submitter</span><span class="o">=</span><span class="n">sub</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">shelly</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/core.py</span> in <span class="ni">__call__</span><span class="nt">(self, submitter, plugin, plugin_kwargs, rerun, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span>             <span class="k">with</span> <span class="n">submitter</span> <span class="k">as</span> <span class="n">sub</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">449</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">evolve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">450</span>                 <span class="n">res</span> <span class="o">=</span> <span class="n">sub</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="k">else</span><span class="p">:</span>  <span class="c1"># tasks without state could be run without a submitter</span>
-<span class="g g-Whitespace">    </span><span class="mi">452</span>             <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run</span><span class="p">(</span><span class="n">rerun</span><span class="o">=</span><span class="n">rerun</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/submitter.py</span> in <span class="ni">__call__</span><span class="nt">(self, runnable, cache_locations, rerun)</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="k">if</span> <span class="n">cache_locations</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>             <span class="n">runnable</span><span class="o">.</span><span class="n">cache_locations</span> <span class="o">=</span> <span class="n">cache_locations</span>
-<span class="ne">---&gt; </span><span class="mi">41</span>         <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">submit_from_call</span><span class="p">(</span><span class="n">runnable</span><span class="p">,</span> <span class="n">rerun</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="k">return</span> <span class="n">runnable</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> 
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/site-packages/nest_asyncio.py</span> in <span class="ni">run_until_complete</span><span class="nt">(self, future)</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span>                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span>                     <span class="s1">&#39;Event loop stopped before Future completed.&#39;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">89</span>             <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span> 
-<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="k">def</span> <span class="nf">_run_once</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/futures.py</span> in <span class="ni">result</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">179</span>         <span class="bp">self</span><span class="o">.</span><span class="n">__log_traceback</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">181</span>             <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_result</span>
-<span class="g g-Whitespace">    </span><span class="mi">183</span> 
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/tasks.py</span> in <span class="ni">__step</span><span class="nt">(***failed resolving arguments***)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">250</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">251</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">coro</span><span class="o">.</span><span class="n">throw</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span>         <span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_must_cancel</span><span class="p">:</span>
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/submitter.py</span> in <span class="ni">submit_from_call</span><span class="nt">(self, runnable, rerun)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span>             <span class="k">if</span> <span class="n">runnable</span><span class="o">.</span><span class="n">state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span>                 <span class="c1"># run_el should always return a coroutine</span>
-<span class="ne">---&gt; </span><span class="mi">76</span>                 <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="o">.</span><span class="n">run_el</span><span class="p">(</span><span class="n">runnable</span><span class="p">,</span> <span class="n">rerun</span><span class="o">=</span><span class="n">rerun</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span>             <span class="c1"># 3</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span>             <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">~/GDrive/GitHub/pydra/pydra/engine/workers.py</span> in <span class="ni">exec_as_coro</span><span class="nt">(self, runnable, rerun)</span>
-<span class="g g-Whitespace">    </span><span class="mi">162</span>         <span class="sd">&quot;&quot;&quot;Run a task (coroutine wrapper).&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">163</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">runnable</span><span class="p">,</span> <span class="n">TaskBase</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">164</span>             <span class="n">res</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="o">.</span><span class="n">run_in_executor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">,</span> <span class="n">runnable</span><span class="o">.</span><span class="n">_run</span><span class="p">,</span> <span class="n">rerun</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">165</span>         <span class="k">else</span><span class="p">:</span>  <span class="c1"># it could be tuple that includes pickle files with tasks and inputs</span>
-<span class="g g-Whitespace">    </span><span class="mi">166</span>             <span class="n">ind</span><span class="p">,</span> <span class="n">task_main_pkl</span><span class="p">,</span> <span class="n">task_orig</span> <span class="o">=</span> <span class="n">runnable</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/futures.py</span> in <span class="ni">__await__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">262</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_asyncio_future_blocking</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="ne">--&gt; </span><span class="mi">263</span>             <span class="k">yield</span> <span class="bp">self</span>  <span class="c1"># This tells Task to wait for completion.</span>
-<span class="g g-Whitespace">    </span><span class="mi">264</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">265</span>             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;await wasn&#39;t used with future&quot;</span><span class="p">)</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/tasks.py</span> in <span class="ni">__wakeup</span><span class="nt">(self, future)</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span>     <span class="k">def</span> <span class="nf">__wakeup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">future</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">318</span>             <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">320</span>             <span class="c1"># This may also be a cancellation.</span>
-
-<span class="nn">~/miniconda3/envs/pydra/lib/python3.7/asyncio/futures.py</span> in <span class="ni">result</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">179</span>         <span class="bp">self</span><span class="o">.</span><span class="n">__log_traceback</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">180</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">181</span>             <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exception</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_result</span>
-<span class="g g-Whitespace">    </span><span class="mi">183</span> 
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;docker&#39;: &#39;docker&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(output=Output(return_code=0, stdout=&#39;root\n&#39;, stderr=&#39;&#39;), runtime=None, errored=False)
 </pre></div>
 </div>
 </div>
@@ -1203,7 +879,7 @@ perhaps the simplest syntax is the last one, that contains <code class="docutils
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(output=Output(return_code=0, stdout=&#39;yibeichen\n&#39;, stderr=&#39;&#39;), runtime=None, errored=False)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(output=Output(return_code=0, stdout=&#39;runner\n&#39;, stderr=&#39;&#39;), runtime=None, errored=False)
 </pre></div>
 </div>
 </div>
@@ -1261,7 +937,7 @@ perhaps the simplest syntax is the last one, that contains <code class="docutils
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By TODO<br/>
+    By Pydra Developers<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
