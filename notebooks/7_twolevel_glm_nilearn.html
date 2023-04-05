@@ -1,48 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>7. Two-Level GLM (from Nilearn) &#8212; Tutorials</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,61 +61,93 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/7_twolevel_glm_nilearn';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Team" href="../about/team.html" />
     <link rel="prev" title="6. First Level GLM (from Nilearn)" href="6_firstlevel_glm_nilearn.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../welcome.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Tutorials</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -113,639 +156,318 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Basic Concepts
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Concepts</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="1_intro_pydra.html">
-   1. Intro to Pydra
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_intro_functiontask.html">
-   2. FunctionTask
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3_intro_functiontask_state.html">
-   3. Tasks with States
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="4_intro_workflow.html">
-   4. Workflow
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="5_intro_shelltask.html">
-   5. ShellCommandTask
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="1_intro_pydra.html">1. Intro to Pydra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_intro_functiontask.html">2. FunctionTask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_intro_functiontask_state.html">3. Tasks with States</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_intro_workflow.html">4. Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_intro_shelltask.html">5. ShellCommandTask</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  General Linear Model
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">General Linear Model</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="6_firstlevel_glm_nilearn.html">
-   6. First Level GLM (from Nilearn)
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   7. Two-Level GLM (from Nilearn)
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="6_firstlevel_glm_nilearn.html">6. First Level GLM (from Nilearn)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Two-Level GLM (from Nilearn)</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About Pydra
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About Pydra</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../about/team.html">
-   Team
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../about/cite_pydra.html">
-   Cite Pydra
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../about/team.html">Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/cite_pydra.html">Cite Pydra</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/nipype/pydra-tutorial/master?urlpath=tree/jupyterbook/notebooks/7_twolevel_glm_nilearn.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/nipype/pydra-tutorial/master?urlpath=tree/jupyterbook/notebooks/7_twolevel_glm_nilearn.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/nipype/pydra-tutorial" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/nipype/pydra-tutorial/issues/new?title=Issue%20on%20page%20%2Fnotebooks/7_twolevel_glm_nilearn.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/7_twolevel_glm_nilearn.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../_sources/notebooks/7_twolevel_glm_nilearn.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/nipype/pydra-tutorial"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/nipype/pydra-tutorial/issues/new?title=Issue%20on%20page%20%2Fnotebooks/7_twolevel_glm_nilearn.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/notebooks/7_twolevel_glm_nilearn.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="../_sources/notebooks/7_twolevel_glm_nilearn.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preparation">
-   7.1. Preparation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-the-data">
-     7.1.1. Download the data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-data-for-each-subject">
-     7.1.2. Get data for each subject
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#first-level-glm">
-   7.2. First-Level GLM
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-the-first-level-design-matrix">
-     7.2.1. Get the first-level design matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-up-the-first-level-contrasts">
-     7.2.2. Set up the first level contrasts
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fit-the-first-level-glm">
-     7.2.3. Fit the first level GLM
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-the-first-level-glm-workflow">
-     7.2.4. Create the first level GLM workflow
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compute-fixed-effects">
-     7.2.5. Compute fixed effects
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-the-fixed-effect-workflow">
-     7.2.6. Create the fixed effect workflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#second-level-glm">
-   7.3. Second-Level GLM
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-the-second-level-design-matrix">
-     7.3.1. Get the second level design matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fit-the-second-level-glm">
-     7.3.2. Fit the second level GLM
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-the-second-level-glm-workflow">
-     7.3.3. Create the second level GLM workflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#statistical-testing">
-   7.4. Statistical Testing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cluster-thresholding-and-plot-without-multiple-comparison">
-     7.4.1. Cluster-thresholding and Plot without multiple comparison
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multiple-comparison-and-plot">
-     7.4.2. Multiple comparison and Plot
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#paramatric-test-plot">
-     7.4.3. Paramatric test &amp; Plot
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#non-paramatric-test-plot">
-     7.4.4. Non-paramatric test &amp; Plot
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-ultimate-workflow">
-   7.5. The Ultimate Workflow
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-workflow-run">
-     7.5.1. Run Workflow Run
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#let-s-plot">
-   7.6. Let’s Plot!
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unthresholded">
-     7.6.1. Unthresholded
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cluster-thresholding">
-     7.6.2. Cluster Thresholding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multiple-comparison">
-     7.6.3. Multiple Comparison
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#paramatric-test">
-     7.6.4. Paramatric Test
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#nonparamatric-test">
-     7.6.5. Nonparamatric Test
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-1">
-   7.7. Exercise #1
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-2">
-   7.8. Exercise #2
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Two-Level GLM (from Nilearn)</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preparation">
-   7.1. Preparation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-the-data">
-     7.1.1. Download the data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-data-for-each-subject">
-     7.1.2. Get data for each subject
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#first-level-glm">
-   7.2. First-Level GLM
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-the-first-level-design-matrix">
-     7.2.1. Get the first-level design matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-up-the-first-level-contrasts">
-     7.2.2. Set up the first level contrasts
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fit-the-first-level-glm">
-     7.2.3. Fit the first level GLM
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-the-first-level-glm-workflow">
-     7.2.4. Create the first level GLM workflow
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compute-fixed-effects">
-     7.2.5. Compute fixed effects
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-the-fixed-effect-workflow">
-     7.2.6. Create the fixed effect workflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#second-level-glm">
-   7.3. Second-Level GLM
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-the-second-level-design-matrix">
-     7.3.1. Get the second level design matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fit-the-second-level-glm">
-     7.3.2. Fit the second level GLM
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-the-second-level-glm-workflow">
-     7.3.3. Create the second level GLM workflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#statistical-testing">
-   7.4. Statistical Testing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cluster-thresholding-and-plot-without-multiple-comparison">
-     7.4.1. Cluster-thresholding and Plot without multiple comparison
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multiple-comparison-and-plot">
-     7.4.2. Multiple comparison and Plot
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#paramatric-test-plot">
-     7.4.3. Paramatric test &amp; Plot
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#non-paramatric-test-plot">
-     7.4.4. Non-paramatric test &amp; Plot
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-ultimate-workflow">
-   7.5. The Ultimate Workflow
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-workflow-run">
-     7.5.1. Run Workflow Run
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#let-s-plot">
-   7.6. Let’s Plot!
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unthresholded">
-     7.6.1. Unthresholded
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cluster-thresholding">
-     7.6.2. Cluster Thresholding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multiple-comparison">
-     7.6.3. Multiple Comparison
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#paramatric-test">
-     7.6.4. Paramatric Test
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#nonparamatric-test">
-     7.6.5. Nonparamatric Test
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-1">
-   7.7. Exercise #1
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-2">
-   7.8. Exercise #2
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Two-Level GLM (from Nilearn)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation">7.1. Preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-data">7.1.1. Download the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-data-for-each-subject">7.1.2. Get data for each subject</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-level-glm">7.2. First-Level GLM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-first-level-design-matrix">7.2.1. Get the first-level design matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-the-first-level-contrasts">7.2.2. Set up the first level contrasts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-the-first-level-glm">7.2.3. Fit the first level GLM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-first-level-glm-workflow">7.2.4. Create the first level GLM workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-fixed-effects">7.2.5. Compute fixed effects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-fixed-effect-workflow">7.2.6. Create the fixed effect workflow</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-level-glm">7.3. Second-Level GLM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-second-level-design-matrix">7.3.1. Get the second level design matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-the-second-level-glm">7.3.2. Fit the second level GLM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-second-level-glm-workflow">7.3.3. Create the second level GLM workflow</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-testing">7.4. Statistical Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-thresholding-and-plot-without-multiple-comparison">7.4.1. Cluster-thresholding and Plot without multiple comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-comparison-and-plot">7.4.2. Multiple comparison and Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paramatric-test-plot">7.4.3. Paramatric test &amp; Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-paramatric-test-plot">7.4.4. Non-paramatric test &amp; Plot</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ultimate-workflow">7.5. The Ultimate Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-workflow-run">7.5.1. Run Workflow Run</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-plot">7.6. Let’s Plot!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unthresholded">7.6.1. Unthresholded</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-thresholding">7.6.2. Cluster Thresholding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-comparison">7.6.3. Multiple Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paramatric-test">7.6.4. Paramatric Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nonparamatric-test">7.6.5. Nonparamatric Test</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">7.7. Exercise #1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">7.8. Exercise #2</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="two-level-glm-from-nilearn">
-<h1><span class="section-number">7. </span>Two-Level GLM (from Nilearn)<a class="headerlink" href="#two-level-glm-from-nilearn" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">7. </span>Two-Level GLM (from Nilearn)<a class="headerlink" href="#two-level-glm-from-nilearn" title="Permalink to this heading">#</a></h1>
 <p>In this tutorial, we demonstrate how to write pydra tasks for the first level (subject-level) GLM and the second level (group-level) GLM in Nilearn. We use the data from <a class="reference external" href="https://openneuro.org/datasets/ds000001/versions/1.0.0">Balloon Analog Risk-taking Task</a>.
 Basic information about this dataset:</p>
 <ul class="simple">
@@ -763,7 +485,7 @@ Basic information about this dataset:</p>
 </div>
 </div>
 <section id="preparation">
-<h2><span class="section-number">7.1. </span>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.1. </span>Preparation<a class="headerlink" href="#preparation" title="Permalink to this heading">#</a></h2>
 <p>Import packages that will be used globally and set up output directory</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -812,10 +534,10 @@ Basic information about this dataset:</p>
 </div>
 </div>
 <section id="download-the-data">
-<h3><span class="section-number">7.1.1. </span>Download the data<a class="headerlink" href="#download-the-data" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.1.1. </span>Download the data<a class="headerlink" href="#download-the-data" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="http://handbook.datalad.org/en/latest/index.htmlhttp://handbook.datalad.org/en/latest/index.html">DataLad</a> is often used in those cases to download data. Here we use its <a class="reference external" href="http://docs.datalad.org/en/latest/modref.htmlhttp://docs.datalad.org/en/latest/modref.html">Python API</a>.</p>
 <p>We need the following data:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>event information (raw data)</p></li>
 <li><p>preprocessed image data (fmriprep)</p></li>
 <li><p>masks (fmriprep)</p></li>
@@ -838,10 +560,10 @@ Basic information about this dataset:</p>
 </div>
 </section>
 <section id="get-data-for-each-subject">
-<h3><span class="section-number">7.1.2. </span>Get data for each subject<a class="headerlink" href="#get-data-for-each-subject" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.1.2. </span>Get data for each subject<a class="headerlink" href="#get-data-for-each-subject" title="Permalink to this heading">#</a></h3>
 <p>By <code class="docutils literal notranslate"><span class="pre">datalad.api.install</span></code>, datalad downloads all symlinks without storing the actual data locally. We can then use <code class="docutils literal notranslate"><span class="pre">datalad.api.get</span></code> to get the data we need for our analysis.
 We need to get four types of data from two folders:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>event_info: <code class="docutils literal notranslate"><span class="pre">*events.tsv</span></code> from <code class="docutils literal notranslate"><span class="pre">rawdata_path</span></code></p></li>
 <li><p>bold: <code class="docutils literal notranslate"><span class="pre">*space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz</span></code> from <code class="docutils literal notranslate"><span class="pre">fmriprep_path</span></code></p></li>
 <li><p>mask: <code class="docutils literal notranslate"><span class="pre">*space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz</span></code> from <code class="docutils literal notranslate"><span class="pre">fmriprep_path</span></code></p></li>
@@ -886,14 +608,14 @@ We need to get four types of data from two folders:</p>
 </section>
 </section>
 <section id="first-level-glm">
-<h2><span class="section-number">7.2. </span>First-Level GLM<a class="headerlink" href="#first-level-glm" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.2. </span>First-Level GLM<a class="headerlink" href="#first-level-glm" title="Permalink to this heading">#</a></h2>
 <p>The first level GLM has two parts:</p>
 <ul class="simple">
 <li><p>conduct GLM for each run on every subject</p></li>
 <li><p>average across runs for each subject with a fixed-effect model</p></li>
 </ul>
 <section id="get-the-first-level-design-matrix">
-<h3><span class="section-number">7.2.1. </span>Get the first-level design matrix<a class="headerlink" href="#get-the-first-level-design-matrix" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.2.1. </span>Get the first-level design matrix<a class="headerlink" href="#get-the-first-level-design-matrix" title="Permalink to this heading">#</a></h3>
 <p>The design matrix is a <em>M(row)</em> x <em>N(columns)</em> matrix. <em>M</em> corresponds to the number of <em>tr</em>, while <em>N</em> corresponds to event conditions + confounds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -939,7 +661,7 @@ We need to get four types of data from two folders:</p>
 </div>
 </section>
 <section id="set-up-the-first-level-contrasts">
-<h3><span class="section-number">7.2.2. </span>Set up the first level contrasts<a class="headerlink" href="#set-up-the-first-level-contrasts" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.2.2. </span>Set up the first level contrasts<a class="headerlink" href="#set-up-the-first-level-contrasts" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@pydra</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">task</span>
@@ -971,7 +693,7 @@ We need to get four types of data from two folders:</p>
 </div>
 </section>
 <section id="fit-the-first-level-glm">
-<h3><span class="section-number">7.2.3. </span>Fit the first level GLM<a class="headerlink" href="#fit-the-first-level-glm" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.2.3. </span>Fit the first level GLM<a class="headerlink" href="#fit-the-first-level-glm" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@pydra</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">task</span>
@@ -1024,7 +746,7 @@ We need to get four types of data from two folders:</p>
 </div>
 </section>
 <section id="create-the-first-level-glm-workflow">
-<h3><span class="section-number">7.2.4. </span>Create the first level GLM workflow<a class="headerlink" href="#create-the-first-level-glm-workflow" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.2.4. </span>Create the first level GLM workflow<a class="headerlink" href="#create-the-first-level-glm-workflow" title="Permalink to this heading">#</a></h3>
 <p>This workflow include GLM for each run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1099,7 +821,7 @@ We need to get four types of data from two folders:</p>
 </div>
 </section>
 <section id="compute-fixed-effects">
-<h3><span class="section-number">7.2.5. </span>Compute fixed effects<a class="headerlink" href="#compute-fixed-effects" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.2.5. </span>Compute fixed effects<a class="headerlink" href="#compute-fixed-effects" title="Permalink to this heading">#</a></h3>
 <p>Before we move to the second(group) level, we need to average results from all three runs from a fixed effect model</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1146,7 +868,7 @@ We need to get four types of data from two folders:</p>
 </div>
 </section>
 <section id="create-the-fixed-effect-workflow">
-<h3><span class="section-number">7.2.6. </span>Create the fixed effect workflow<a class="headerlink" href="#create-the-fixed-effect-workflow" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.2.6. </span>Create the fixed effect workflow<a class="headerlink" href="#create-the-fixed-effect-workflow" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initiate the fixed effect GLM workflow</span>
@@ -1209,7 +931,7 @@ We need to get four types of data from two folders:</p>
 </section>
 </section>
 <section id="second-level-glm">
-<h2><span class="section-number">7.3. </span>Second-Level GLM<a class="headerlink" href="#second-level-glm" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.3. </span>Second-Level GLM<a class="headerlink" href="#second-level-glm" title="Permalink to this heading">#</a></h2>
 <p>The second level GLM, as known as the group level, averages results across subjects, containing the following steps:</p>
 <ul class="simple">
 <li><p>construct design matrix</p></li>
@@ -1217,7 +939,7 @@ We need to get four types of data from two folders:</p>
 <li><p>statistical testing</p></li>
 </ul>
 <section id="get-the-second-level-design-matrix">
-<h3><span class="section-number">7.3.1. </span>Get the second level design matrix<a class="headerlink" href="#get-the-second-level-design-matrix" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.3.1. </span>Get the second level design matrix<a class="headerlink" href="#get-the-second-level-design-matrix" title="Permalink to this heading">#</a></h3>
 <p>This is a one-group design. So we need a design matrix for a one-sample test.</p>
 <p>The design matrix is a single column of ones, corresponding to the model intercept.</p>
 <div class="cell docutils container">
@@ -1237,7 +959,7 @@ We need to get four types of data from two folders:</p>
 </div>
 </section>
 <section id="fit-the-second-level-glm">
-<h3><span class="section-number">7.3.2. </span>Fit the second level GLM<a class="headerlink" href="#fit-the-second-level-glm" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.3.2. </span>Fit the second level GLM<a class="headerlink" href="#fit-the-second-level-glm" title="Permalink to this heading">#</a></h3>
 <p>Here, we use the list of FirstLevel z-maps as the input for the SecondLevelModel.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1275,7 +997,7 @@ We need to get four types of data from two folders:</p>
 </div>
 </section>
 <section id="create-the-second-level-glm-workflow">
-<h3><span class="section-number">7.3.3. </span>Create the second level GLM workflow<a class="headerlink" href="#create-the-second-level-glm-workflow" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.3.3. </span>Create the second level GLM workflow<a class="headerlink" href="#create-the-second-level-glm-workflow" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initiate the first-level GLM workflow</span>
@@ -1322,16 +1044,16 @@ We need to get four types of data from two folders:</p>
 </section>
 </section>
 <section id="statistical-testing">
-<h2><span class="section-number">7.4. </span>Statistical Testing<a class="headerlink" href="#statistical-testing" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.4. </span>Statistical Testing<a class="headerlink" href="#statistical-testing" title="Permalink to this heading">#</a></h2>
 <p>In this section, we present different ways of doing statistical testing</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Cluster-thresholding without multiple comparison</p></li>
 <li><p>Multiple comparison using FDR</p></li>
 <li><p>Paramatric testing</p></li>
 <li><p>Nonparamatric testing</p></li>
 </ol>
 <section id="cluster-thresholding-and-plot-without-multiple-comparison">
-<h3><span class="section-number">7.4.1. </span>Cluster-thresholding and Plot without multiple comparison<a class="headerlink" href="#cluster-thresholding-and-plot-without-multiple-comparison" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.4.1. </span>Cluster-thresholding and Plot without multiple comparison<a class="headerlink" href="#cluster-thresholding-and-plot-without-multiple-comparison" title="Permalink to this heading">#</a></h3>
 <p>Threshold the resulting map without multiple comparisons correction, abs(z) &gt; 3.29 (equivalent to p &lt; 0.001), cluster size &gt; 10 voxels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1371,7 +1093,7 @@ We need to get four types of data from two folders:</p>
 </div>
 </section>
 <section id="multiple-comparison-and-plot">
-<h3><span class="section-number">7.4.2. </span>Multiple comparison and Plot<a class="headerlink" href="#multiple-comparison-and-plot" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.4.2. </span>Multiple comparison and Plot<a class="headerlink" href="#multiple-comparison-and-plot" title="Permalink to this heading">#</a></h3>
 <p>We have the following choices:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">fdr</span></code>: False Discovery Rate (FDR &lt;.05) and no cluster-level threshold</p></li>
@@ -1418,7 +1140,7 @@ We need to get four types of data from two folders:</p>
 </div>
 </section>
 <section id="paramatric-test-plot">
-<h3><span class="section-number">7.4.3. </span>Paramatric test &amp; Plot<a class="headerlink" href="#paramatric-test-plot" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.4.3. </span>Paramatric test &amp; Plot<a class="headerlink" href="#paramatric-test-plot" title="Permalink to this heading">#</a></h3>
 <p>We threshold the second level contrast at uncorrected p &lt; 0.001.</p>
 <p>A nilearn example see <a class="reference external" href="https://nilearn.github.io/dev/auto_examples/05_glm_second_level/plot_second_level_one_sample_test.html">here</a></p>
 <div class="cell docutils container">
@@ -1467,7 +1189,7 @@ We need to get four types of data from two folders:</p>
 </div>
 </section>
 <section id="non-paramatric-test-plot">
-<h3><span class="section-number">7.4.4. </span>Non-paramatric test &amp; Plot<a class="headerlink" href="#non-paramatric-test-plot" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.4.4. </span>Non-paramatric test &amp; Plot<a class="headerlink" href="#non-paramatric-test-plot" title="Permalink to this heading">#</a></h3>
 <p>Here we compute the (corrected) negative log p-values with permutation test.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1508,7 +1230,7 @@ We need to get four types of data from two folders:</p>
 </section>
 </section>
 <section id="the-ultimate-workflow">
-<h2><span class="section-number">7.5. </span>The Ultimate Workflow<a class="headerlink" href="#the-ultimate-workflow" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.5. </span>The Ultimate Workflow<a class="headerlink" href="#the-ultimate-workflow" title="Permalink to this heading">#</a></h2>
 <p>Now, let’s connect all tasks and workflows together.</p>
 <p>Here we randomly choose <strong>5</strong> subjects to perform the analysis.</p>
 <p>For computational time, we set <code class="docutils literal notranslate"><span class="pre">n_perm=100</span></code>.</p>
@@ -1588,9 +1310,9 @@ We need to get four types of data from two folders:</p>
 </div>
 </div>
 <section id="run-workflow-run">
-<h3><span class="section-number">7.5.1. </span>Run Workflow Run<a class="headerlink" href="#run-workflow-run" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.5.1. </span>Run Workflow Run<a class="headerlink" href="#run-workflow-run" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pydra</span> <span class="kn">import</span> <span class="n">Submitter</span>
 
 <span class="k">with</span> <span class="n">Submitter</span><span class="p">(</span><span class="n">plugin</span><span class="o">=</span><span class="s1">&#39;cf&#39;</span><span class="p">,</span> <span class="n">n_procs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">submitter</span><span class="p">:</span>
@@ -1602,8 +1324,13 @@ We need to get four types of data from two folders:</p>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Download data for subject-3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Download data for subject-8
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1618,7 +1345,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-03/func/sub-03_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-08/func/sub-08_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1639,7 +1366,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-03/func/sub-03_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-08/func/sub-08_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1660,7 +1387,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-03/func/sub-03_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-08/func/sub-08_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1681,7 +1408,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-03/func/sub-03_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-08/func/sub-08_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1702,7 +1429,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-03/func/sub-03_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-08/func/sub-08_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1723,7 +1450,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-03/func/sub-03_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-08/func/sub-08_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1744,7 +1471,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-03/func/sub-03_task-balloonanalogrisktask_run-1_desc-confounds_timeseries.tsv (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-08/func/sub-08_task-balloonanalogrisktask_run-1_desc-confounds_timeseries.tsv (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1765,7 +1492,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-03/func/sub-03_task-balloonanalogrisktask_run-2_desc-confounds_timeseries.tsv (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-08/func/sub-08_task-balloonanalogrisktask_run-2_desc-confounds_timeseries.tsv (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1786,7 +1513,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-03/func/sub-03_task-balloonanalogrisktask_run-3_desc-confounds_timeseries.tsv (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-08/func/sub-08_task-balloonanalogrisktask_run-3_desc-confounds_timeseries.tsv (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1798,7 +1525,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Download data for subject-11
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Download data for subject-15
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1813,28 +1540,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-11/func/sub-11_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-11/func/sub-11_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-15/func/sub-15_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1855,7 +1561,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-11/func/sub-11_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-15/func/sub-15_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1876,7 +1582,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-11/func/sub-11_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-15/func/sub-15_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1897,7 +1603,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-11/func/sub-11_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-15/func/sub-15_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1918,7 +1624,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-11/func/sub-11_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-15/func/sub-15_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1939,7 +1645,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-11/func/sub-11_task-balloonanalogrisktask_run-1_desc-confounds_timeseries.tsv (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-15/func/sub-15_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1960,7 +1666,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-11/func/sub-11_task-balloonanalogrisktask_run-2_desc-confounds_timeseries.tsv (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-15/func/sub-15_task-balloonanalogrisktask_run-1_desc-confounds_timeseries.tsv (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -1981,34 +1687,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-11/func/sub-11_task-balloonanalogrisktask_run-3_desc-confounds_timeseries.tsv (
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Download data for subject-12
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-15/func/sub-15_task-balloonanalogrisktask_run-2_desc-confounds_timeseries.tsv (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -2029,7 +1708,34 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-15/func/sub-15_task-balloonanalogrisktask_run-3_desc-confounds_timeseries.tsv (
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Download data for subject-6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-06/func/sub-06_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -2050,7 +1756,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-06/func/sub-06_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -2071,7 +1777,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-06/func/sub-06_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -2092,7 +1798,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-06/func/sub-06_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -2113,7 +1819,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-06/func/sub-06_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -2134,7 +1840,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-1_desc-confounds_timeseries.tsv (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-06/func/sub-06_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -2155,7 +1861,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-2_desc-confounds_timeseries.tsv (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-06/func/sub-06_task-balloonanalogrisktask_run-1_desc-confounds_timeseries.tsv (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -2176,34 +1882,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-3_desc-confounds_timeseries.tsv (
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Download data for subject-7
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-07/func/sub-07_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-06/func/sub-06_task-balloonanalogrisktask_run-2_desc-confounds_timeseries.tsv (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -2224,154 +1903,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-07/func/sub-07_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-07/func/sub-07_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-07/func/sub-07_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-07/func/sub-07_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-07/func/sub-07_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-07/func/sub-07_task-balloonanalogrisktask_run-1_desc-confounds_timeseries.tsv (
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-07/func/sub-07_task-balloonanalogrisktask_run-2_desc-confounds_timeseries.tsv (
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-07/func/sub-07_task-balloonanalogrisktask_run-3_desc-confounds_timeseries.tsv (
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-06/func/sub-06_task-balloonanalogrisktask_run-3_desc-confounds_timeseries.tsv (
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
@@ -2578,73 +2110,250 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-3, run-1 firstlevel GLM design matrix...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Download data for subject-12
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-3, run-2 firstlevel GLM design matrix...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-3, run-3 firstlevel GLM design matrix...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-11, run-1 firstlevel GLM design matrix...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz (
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-11, run-2 firstlevel GLM design matrix...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-1_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-11, run-3 firstlevel GLM design matrix...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-2_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-12, run-1 firstlevel GLM design matrix...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-3_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz (
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-12, run-2 firstlevel GLM design matrix...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-1_desc-confounds_timeseries.tsv (
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-12, run-3 firstlevel GLM design matrix...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-2_desc-confounds_timeseries.tsv (
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-7, run-1 firstlevel GLM design matrix...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ok
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>): sub-12/func/sub-12_task-balloonanalogrisktask_run-3_desc-confounds_timeseries.tsv (
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>file
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>) [from openneuro-derivatives...]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-7, run-2 firstlevel GLM design matrix...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-8, run-1 firstlevel GLM design matrix...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-7, run-3 firstlevel GLM design matrix...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-8, run-2 firstlevel GLM design matrix...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-8, run-3 firstlevel GLM design matrix...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-15, run-1 firstlevel GLM design matrix...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-15, run-2 firstlevel GLM design matrix...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-15, run-3 firstlevel GLM design matrix...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-6, run-1 firstlevel GLM design matrix...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-6, run-2 firstlevel GLM design matrix...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-6, run-3 firstlevel GLM design matrix...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2668,73 +2377,73 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-3, run-1 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-12, run-1 firstlevel GLM design matrix...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-3, run-2 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-12, run-2 firstlevel GLM design matrix...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-3, run-3 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get subject-12, run-3 firstlevel GLM design matrix...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-11, run-1 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-8, run-1 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-11, run-2 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-8, run-2 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-11, run-3 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-8, run-3 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-12, run-1 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-15, run-1 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-12, run-2 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-15, run-2 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-12, run-3 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-15, run-3 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-7, run-1 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-6, run-1 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-7, run-2 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-6, run-2 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-7, run-3 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-6, run-3 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2758,7 +2467,25 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-3, run-1 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-12, run-1 ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-12, run-2 ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Set firstlevel contrast for subject-12, run-3 ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-8, run-1 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2806,7 +2533,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-3, run-2 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-8, run-2 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2854,7 +2581,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-3, run-3 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-8, run-3 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2902,7 +2629,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-11, run-1 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-15, run-1 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2950,7 +2677,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-11, run-2 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-15, run-2 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2998,7 +2725,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-11, run-3 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-15, run-3 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3046,7 +2773,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-12, run-1 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-6, run-1 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3094,7 +2821,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-12, run-2 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-6, run-2 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3142,151 +2869,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-12, run-3 ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit the firstlevel model...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing contrasts...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  1 out of 5: pumps-control
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  2 out of 5: control-pumps
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  3 out of 5: pumps-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  4 out of 5: cash-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  5 out of 5: explode-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-7, run-1 ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit the firstlevel model...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing contrasts...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  1 out of 5: pumps-control
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  2 out of 5: control-pumps
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  3 out of 5: pumps-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  4 out of 5: cash-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  5 out of 5: explode-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-7, run-2 ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit the firstlevel model...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing contrasts...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  1 out of 5: pumps-control
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  2 out of 5: control-pumps
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  3 out of 5: pumps-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  4 out of 5: cash-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  5 out of 5: explode-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-7, run-3 ...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-6, run-3 ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3478,7 +3061,151 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compute fixed effects for subject-3...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-12, run-1 ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit the firstlevel model...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing contrasts...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  1 out of 5: pumps-control
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  2 out of 5: control-pumps
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  3 out of 5: pumps-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  4 out of 5: cash-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  5 out of 5: explode-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-12, run-2 ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit the firstlevel model...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing contrasts...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  1 out of 5: pumps-control
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  2 out of 5: control-pumps
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  3 out of 5: pumps-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  4 out of 5: cash-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  5 out of 5: explode-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start firstlevel estimation for subject-12, run-3 ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit the firstlevel model...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computing contrasts...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  1 out of 5: pumps-control
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  2 out of 5: control-pumps
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  3 out of 5: pumps-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  4 out of 5: cash-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Contrast  5 out of 5: explode-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compute fixed effects for subject-8...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3514,7 +3241,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compute fixed effects for subject-11...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compute fixed effects for subject-15...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3550,43 +3277,7 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compute fixed effects for subject-12...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Contrast  1 out of 5: pumps-control
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Contrast  2 out of 5: control-pumps
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Contrast  3 out of 5: pumps-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Contrast  4 out of 5: cash-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Contrast  5 out of 5: explode-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compute fixed effects for subject-7...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compute fixed effects for subject-6...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3623,6 +3314,42 @@ We need to get four types of data from two folders:</p>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compute fixed effects for subject-10...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Contrast  1 out of 5: pumps-control
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Contrast  2 out of 5: control-pumps
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Contrast  3 out of 5: pumps-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Contrast  4 out of 5: cash-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Contrast  5 out of 5: explode-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compute fixed effects for subject-12...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3700,90 +3427,6 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start parametric test ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  1 out of 5: pumps-control
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  2 out of 5: control-pumps
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  3 out of 5: pumps-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  4 out of 5: cash-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  5 out of 5: explode-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parametric test is done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start cluster thresholding ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  1 out of 5: pumps-control
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  2 out of 5: control-pumps
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  3 out of 5: pumps-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  4 out of 5: cash-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  5 out of 5: explode-baseline
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cluster thresholding is done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start multiple comparison ...
 </pre></div>
 </div>
@@ -3821,6 +3464,48 @@ We need to get four types of data from two folders:</p>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multiple comparison is done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start parametric test ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  1 out of 5: pumps-control
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  2 out of 5: control-pumps
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  3 out of 5: pumps-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  4 out of 5: cash-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  5 out of 5: explode-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parametric test is done
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -3868,23 +3553,71 @@ We need to get four types of data from two folders:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(output=Output(second_level_stats_map={&#39;pumps-control&#39;: {&#39;z_score&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd4006fb0&gt;, &#39;stat&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd3e398d0&gt;, &#39;p_value&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd3e396f0&gt;, &#39;effect_size&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd3e39e10&gt;, &#39;effect_variance&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd3e398a0&gt;}, &#39;control-pumps&#39;: {&#39;z_score&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd3e3bf10&gt;, &#39;stat&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd3ed7d30&gt;, &#39;p_value&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd3ed4640&gt;, &#39;effect_size&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5eb00&gt;, &#39;effect_variance&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5f400&gt;}, &#39;pumps-baseline&#39;: {&#39;z_score&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5d0f0&gt;, &#39;stat&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5ca00&gt;, &#39;p_value&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5d2d0&gt;, &#39;effect_size&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5f730&gt;, &#39;effect_variance&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5dc90&gt;}, &#39;cash-baseline&#39;: {&#39;z_score&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5cee0&gt;, &#39;stat&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5ca60&gt;, &#39;p_value&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5f880&gt;, &#39;effect_size&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5f100&gt;, &#39;effect_variance&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5dd20&gt;}, &#39;explode-baseline&#39;: {&#39;z_score&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5ee30&gt;, &#39;stat&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5e0b0&gt;, &#39;p_value&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5dbd0&gt;, &#39;effect_size&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5d540&gt;, &#39;effect_variance&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7efbd1d5f760&gt;}}), runtime=None, errored=False)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start cluster thresholding ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  1 out of 5: pumps-control
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  2 out of 5: control-pumps
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  3 out of 5: pumps-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  4 out of 5: cash-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contrast  5 out of 5: explode-baseline
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cluster thresholding is done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(output=Output(second_level_stats_map={&#39;pumps-control&#39;: {&#39;z_score&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa3e0794a50&gt;, &#39;stat&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39b932050&gt;, &#39;p_value&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39b932450&gt;, &#39;effect_size&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39b931c10&gt;, &#39;effect_variance&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39b932dd0&gt;}, &#39;control-pumps&#39;: {&#39;z_score&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39be42e90&gt;, &#39;stat&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39bc4d950&gt;, &#39;p_value&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39bd6d450&gt;, &#39;effect_size&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39ba61fd0&gt;, &#39;effect_variance&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39ba60710&gt;}, &#39;pumps-baseline&#39;: {&#39;z_score&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39ba62c90&gt;, &#39;stat&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39ba63110&gt;, &#39;p_value&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39ba60dd0&gt;, &#39;effect_size&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39ba60d10&gt;, &#39;effect_variance&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39baa6e10&gt;}, &#39;cash-baseline&#39;: {&#39;z_score&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39baa45d0&gt;, &#39;stat&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39baa75d0&gt;, &#39;p_value&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39baa7650&gt;, &#39;effect_size&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39baa5ed0&gt;, &#39;effect_variance&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39ba102d0&gt;}, &#39;explode-baseline&#39;: {&#39;z_score&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39ba107d0&gt;, &#39;stat&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39ba105d0&gt;, &#39;p_value&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa39ba13990&gt;, &#39;effect_size&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa3999e3cd0&gt;, &#39;effect_variance&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa3999e3510&gt;}}), runtime=None, errored=False)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 </section>
 <section id="let-s-plot">
-<h2><span class="section-number">7.6. </span>Let’s Plot!<a class="headerlink" href="#let-s-plot" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.6. </span>Let’s Plot!<a class="headerlink" href="#let-s-plot" title="Permalink to this heading">#</a></h2>
 <p>We only use 5 subjects, so it’s reasonable the following plots have nothing survived from testing.</p>
 <section id="unthresholded">
-<h3><span class="section-number">7.6.1. </span>Unthresholded<a class="headerlink" href="#unthresholded" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.6.1. </span>Unthresholded<a class="headerlink" href="#unthresholded" title="Permalink to this heading">#</a></h3>
 <p>Let’s plot the unthresholded image first.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="n">ut_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">workflow_out_dir</span><span class="p">,</span> <span class="s2">&quot;secondlevel_unthresholded*.jpg&quot;</span><span class="p">))</span>
@@ -3892,14 +3625,20 @@ We need to get four types of data from two folders:</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/7_twolevel_glm_nilearn_45_0.jpg" src="../_images/7_twolevel_glm_nilearn_45_0.jpg" />
+<img alt="../_images/382d3ac6a3fcd95d5f0b547095e977962409f3779ff8d06d2e10c54e332c0155.jpg" src="../_images/382d3ac6a3fcd95d5f0b547095e977962409f3779ff8d06d2e10c54e332c0155.jpg" />
 </div>
 </div>
 </section>
 <section id="cluster-thresholding">
-<h3><span class="section-number">7.6.2. </span>Cluster Thresholding<a class="headerlink" href="#cluster-thresholding" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.6.2. </span>Cluster Thresholding<a class="headerlink" href="#cluster-thresholding" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="n">ct_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">workflow_out_dir</span><span class="p">,</span> <span class="s2">&quot;secondlevel_cluster_thresholded*.jpg&quot;</span><span class="p">))</span>
@@ -3907,61 +3646,80 @@ We need to get four types of data from two folders:</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/7_twolevel_glm_nilearn_47_0.jpg" src="../_images/7_twolevel_glm_nilearn_47_0.jpg" />
+<img alt="../_images/7a87c290f0f1ef5d06fc5ce01f9fec6d6cc4df9826fd5608202c1c912616d287.jpg" src="../_images/7a87c290f0f1ef5d06fc5ce01f9fec6d6cc4df9826fd5608202c1c912616d287.jpg" />
 </div>
 </div>
 </section>
 <section id="multiple-comparison">
-<h3><span class="section-number">7.6.3. </span>Multiple Comparison<a class="headerlink" href="#multiple-comparison" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.6.3. </span>Multiple Comparison<a class="headerlink" href="#multiple-comparison" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mc_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">workflow_out_dir</span><span class="p">,</span> <span class="s2">&quot;secondlevel_multiple_comp*.jpg&quot;</span><span class="p">))</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">mc_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/7_twolevel_glm_nilearn_49_0.jpg" src="../_images/7_twolevel_glm_nilearn_49_0.jpg" />
+<img alt="../_images/e75f4d16dadfb59d319972edc5c90294283712780d10fc3ad4286622d7f73baa.jpg" src="../_images/e75f4d16dadfb59d319972edc5c90294283712780d10fc3ad4286622d7f73baa.jpg" />
 </div>
 </div>
 </section>
 <section id="paramatric-test">
-<h3><span class="section-number">7.6.4. </span>Paramatric Test<a class="headerlink" href="#paramatric-test" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.6.4. </span>Paramatric Test<a class="headerlink" href="#paramatric-test" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">workflow_out_dir</span><span class="p">,</span> <span class="s2">&quot;secondlevel_paramatric*.jpg&quot;</span><span class="p">))</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">pt_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/7_twolevel_glm_nilearn_51_0.jpg" src="../_images/7_twolevel_glm_nilearn_51_0.jpg" />
+<img alt="../_images/7ad10e2a78acdf7374faad2bbaa55bdcc66622985af4c917c280564c7d196052.jpg" src="../_images/7ad10e2a78acdf7374faad2bbaa55bdcc66622985af4c917c280564c7d196052.jpg" />
 </div>
 </div>
 </section>
 <section id="nonparamatric-test">
-<h3><span class="section-number">7.6.5. </span>Nonparamatric Test<a class="headerlink" href="#nonparamatric-test" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">7.6.5. </span>Nonparamatric Test<a class="headerlink" href="#nonparamatric-test" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npt_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">workflow_out_dir</span><span class="p">,</span> <span class="s2">&quot;secondlevel_permutation*.jpg&quot;</span><span class="p">))</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">npt_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/7_twolevel_glm_nilearn_53_0.jpg" src="../_images/7_twolevel_glm_nilearn_53_0.jpg" />
+<img alt="../_images/3ea9ab39adac77328490dd89008286d6c86485a021884137f04734024a654fa2.jpg" src="../_images/3ea9ab39adac77328490dd89008286d6c86485a021884137f04734024a654fa2.jpg" />
 </div>
 </div>
 </section>
 </section>
 <section id="exercise-1">
-<h2><span class="section-number">7.7. </span>Exercise #1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.7. </span>Exercise #1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h2>
 <p>In this example, we conducted GLM on each run per subject separately and then used a fixed-effect model to average across runs.</p>
 <p>Where did we put <code class="docutils literal notranslate"><span class="pre">.splitter</span></code> and <code class="docutils literal notranslate"><span class="pre">.combiner</span></code>. Why did we put it there?</p>
 </section>
 <section id="exercise-2">
-<h2><span class="section-number">7.8. </span>Exercise #2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.8. </span>Exercise #2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h2>
 <p>Moreover, We choose this approach due to limited memory on GitHub. <a class="reference external" href="https://nilearn.github.io/stable/modules/generated/nilearn.glm.first_level.FirstLevelModel.html">FirstLevelModel</a> in Nilearn also allows to compute multiple runs with a fixed-effect model simultanously. Here is an <a class="reference external" href="https://nilearn.github.io/stable/auto_examples/04_glm_first_level/plot_fiac_analysis.html#sphx-glr-auto-examples-04-glm-first-level-plot-fiac-analysis-py">example</a>.</p>
 <p>Would you like to give it a try on your own?</p>
 </section>
@@ -3979,7 +3737,7 @@ We need to get four types of data from two folders:</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -3987,50 +3745,145 @@ We need to get four types of data from two folders:</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="6_firstlevel_glm_nilearn.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">6. </span>First Level GLM (from Nilearn)</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="6_firstlevel_glm_nilearn.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>First Level GLM (from Nilearn)</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../about/team.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../about/team.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Team</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Pydra Developers<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation">7.1. Preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-data">7.1.1. Download the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-data-for-each-subject">7.1.2. Get data for each subject</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-level-glm">7.2. First-Level GLM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-first-level-design-matrix">7.2.1. Get the first-level design matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-the-first-level-contrasts">7.2.2. Set up the first level contrasts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-the-first-level-glm">7.2.3. Fit the first level GLM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-first-level-glm-workflow">7.2.4. Create the first level GLM workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-fixed-effects">7.2.5. Compute fixed effects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-fixed-effect-workflow">7.2.6. Create the fixed effect workflow</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-level-glm">7.3. Second-Level GLM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-second-level-design-matrix">7.3.1. Get the second level design matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-the-second-level-glm">7.3.2. Fit the second level GLM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-second-level-glm-workflow">7.3.3. Create the second level GLM workflow</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-testing">7.4. Statistical Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-thresholding-and-plot-without-multiple-comparison">7.4.1. Cluster-thresholding and Plot without multiple comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-comparison-and-plot">7.4.2. Multiple comparison and Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paramatric-test-plot">7.4.3. Paramatric test &amp; Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-paramatric-test-plot">7.4.4. Non-paramatric test &amp; Plot</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ultimate-workflow">7.5. The Ultimate Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-workflow-run">7.5.1. Run Workflow Run</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-plot">7.6. Let’s Plot!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unthresholded">7.6.1. Unthresholded</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-thresholding">7.6.2. Cluster Thresholding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-comparison">7.6.3. Multiple Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paramatric-test">7.6.4. Paramatric Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nonparamatric-test">7.6.5. Nonparamatric Test</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">7.7. Exercise #1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">7.8. Exercise #2</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Pydra Developers
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
